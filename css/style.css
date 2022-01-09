@@ -1,0 +1,18 @@
+.heder {
+    width: 100%;
+}
+.wrapper {
+    width: 970px;
+}
+.main {
+    display: block;
+    float: left;
+    width: 660px;
+}
+.sidmenu {
+    float: right;
+    width: 275px;
+}
+.footer {
+    width: 100%;
+}
