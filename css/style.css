@@ -19,6 +19,9 @@ a:link, a:visited, a:hover, a:active {
 
 .heder {
     width: 100%;
+    padding: 28px 0 10px;   /*上余白28px、舌余白10px*/
+    background: url('../images/bg-header.gif') repeat-x;/*画層をx方向に繰り返す*/
+    box-shadow: 0 0 10px 1px #e3e3e3;
 }
 .wrapper {
     width: 970px;
@@ -42,13 +45,43 @@ a:link, a:visited, a:hover, a:active {
     clear: both;
 }
 
-.heder, main, .sidemenu, footer {
-    border: 1px solid #aaa;
-    background-color: #ccc;
+.logo {
+    width: 225px;     /*サイトロゴの表示の幅*/
+    height: 56px;   /*サイトロゴの画像の高さ*/
+    margin: 0 auto;  /*中央寄せ*/
+    background: url('../images/logo.png') no-repeat;
+    overflow:  hidden; /*背景にSAMPLE LOGOのテキストが画像で隠されている*/
+    text-indent: 100%;
+    white-space: nowrap;
 }
-.heder, footer {
-    height: 100px;
+.logo a {
+    display: block; /*display:blockを指定することでサイズを指定できるようになる*/
+    width: 100%;
+    height: 100%;
 }
-.main, .sidemenu {
-    height: 500px;
+.global-nav {
+    margin-top: 15px;
+    text-align: center;
+}
+.global-nav .nav-item {
+    display: inline-block;
+    margin: 0 10px;
+    /*サイズをあえて指定しない子要素の方でサイズが決まる*/
+}
+.global-nav .nav-item a {
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 8px;
+    color: #666;    /*黒ではない*/
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    transition: 0.4s;   /*スタイルの変化に係る時間を調節する*/
+}
+.global-nav .nav-item.active a, /*.nav-itemと.activeをスペースなく接続する*/
+.global-nav .nav-item a:hover {
+    background-color:  #d03c56;
+    color: #fff;
 }
