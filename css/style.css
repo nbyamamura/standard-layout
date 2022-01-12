@@ -1,143 +1,256 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
-html {
+html
+{
     font-size: 62.5%;
 }
-body {
-    color: #333;
+body
+{
+    font-family: 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
     font-size: 1.25rem;
-    font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+    color: #333;
 }
-*, *::before, *::after {
+*,
+*::before,
+*::after
+{
     box-sizing: border-box;
 }
-a:link, a:visited, a:hover, a:active {
-    color: #d03c56;
+a:link,
+a:visited,
+a:hover,
+a:active
+{
     text-decoration: none;
+
+    color: #d03c56;
 }
 
 
-.heder {
+.heder
+{
     width: 100%;
     padding: 28px 0 10px;   /*上余白28px、舌余白10px*/
+
     background: url('../images/bg-header.gif') repeat-x;/*画層をx方向に繰り返す*/
     box-shadow: 0 0 10px 1px #e3e3e3;
 }
-.wrapper {
+.wrapper
+{
     width: 970px;
     margin: 30px auto 40px;
 }
-.main {
+.main
+{
     display: block;
     float: left;
+
     width: 660px;
 }
-.hidden {
+.hidden
+{
     display: none;
 }
-.sidemenu {
+.sidemenu
+{
     float: right;
+
     width: 275px;
 }
-.footer {
+.footer
+{
     width: 100%;
 }
-.clearfix::after {
-    content: '';
+.clearfix::after
+{
     display: block;
     clear: both;
+
+    content: '';
 }
 
-.logo {
+.logo
+{
+    overflow: hidden; /*背景にSAMPLE LOGOのテキストが画像で隠されている*/
+
     width: 225px;     /*サイトロゴの表示の幅*/
     height: 56px;   /*サイトロゴの画像の高さ*/
     margin: 0 auto;  /*中央寄せ*/
-    background: url('../images/logo.png') no-repeat;
-    overflow:  hidden; /*背景にSAMPLE LOGOのテキストが画像で隠されている*/
-    text-indent: 100%;
+
     white-space: nowrap;
+    text-indent: 100%;
+
+    background: url('../images/logo.png') no-repeat;
 }
-.logo a {
+.logo a
+{
     display: block; /*display:blockを指定することでサイズを指定できるようになる*/
+
     width: 100%;
     height: 100%;
 }
-.global-nav {
+.global-nav
+{
     margin-top: 15px;
+
     text-align: center;
 }
-.global-nav .nav-item {
+.global-nav .nav-item
+{
     display: inline-block;
+
     margin: 0 10px;
     /*サイズをあえて指定しない子要素の方でサイズが決まる*/
 }
-.global-nav .nav-item a {
+.global-nav .nav-item a
+{
+    font-size: 1.3rem;
+    line-height: 30px;
+
     display: inline-block;
+
     width: 100px;
     height: 30px;
-    line-height: 30px;
+
+    transition: .4s;   /*スタイルの変化に係る時間を調節する*/
     text-align: center;
-    border-radius: 8px;
-    color: #666;    /*黒ではない*/
-    font-size: 1.3rem;
     letter-spacing: 1px;
-    transition: 0.4s;   /*スタイルの変化に係る時間を調節する*/
+
+    color: #666;    /*黒ではない*/
+    border-radius: 8px;
 }
-.global-nav .nav-item.active a, /*.nav-itemと.activeをスペースなく接続する*/
-.global-nav .nav-item a:hover {
-    background-color:  #d03c56;
+.global-nav .nav-item.active a,
+/*.nav-itemと.activeをスペースなく接続する*/
+.global-nav .nav-item a:hover
+{
     color: #fff;
+    background-color: #d03c56;
 }
-.hot-topic {
+.hot-topic
+{
     display: block; /*.hot-topicはa要素なのでブロックレベル要素として扱えるようにする*/
+
     height: 300px;
     margin-bottom: 30px;
-    box-shadow: 0 6px 4px -4px rgba(0,0,0,0.15);
-    transition: opacity 0.15s;
+
+    transition: opacity .15s;
+
+    box-shadow: 0 6px 4px -4px rgba(0,0,0,.15);
 }
-.hot-topic:hover {
-    opacity: 0.85;  /*ホーバーしたときに光ったように見える*/
+.hot-topic:hover
+{
+    opacity: .85;  /*ホーバーしたときに光ったように見える*/
 }
-.hot-topic .image {
+.hot-topic .image
+{
     float: left;
+
     width: 50%;
     height: 100%;
 }
-.hot-topic .content {
+.hot-topic .content
+{
+    line-height: 1.6;
+
     position: relative;
+
     float: right;
+
     width: 50%;
     height: 100%;
     padding: 105px 25px 0;
+
     background-color: #2d3d54;
-    line-height: 1.6;
 }
-.hot-topic .title {
-    margin-bottom: 15px;
-    color: #fff;
-    font-weight: normal;
+.hot-topic .title
+{
     font-size: 2rem;
+    font-weight: normal;
+
+    margin-bottom: 15px;
+
+    color: #fff;
 }
-.hot-topic .desc {
+.hot-topic .desc
+{
     color: #ddc;
 }
-.hot-topic .date {
+.hot-topic .date
+{
+    font-size: 1.1rem;
+    font-weight: bold;
+    line-height: 1;
+
     position: absolute;
     top: 60px;
     left: 0;
+
     width: 140px;
     padding: 4px;
-    background-color: #fff;
-    color: #2d3d54;
+
     text-align: center;
     letter-spacing: 1px;
-    font-weight: bold;
-    font-size: 1.1rem;
-    line-height: 1;
+
+    color: #2d3d54;
+    background-color: #fff;
 }
-.heading {
-    padding: 10px 12px;
-    background: url('../images/bg-slash.gif');
-    letter-spacing: 1px;
+.heading
+{
     font-size: 1.6rem;
+
+    padding: 10px 12px;
+
+    letter-spacing: 1px;
+
+    background: url('../images/bg-slash.gif');
+}
+.scroll-list {
+    max-height: 220px;  /*中の要素が少ない場合は縮む*/
+    overflow-y: auto;   /*溢れた場合はスクロールする*/
+    margin-bottom: 30px;
+    list-style: none;   /*リストマークを表示しない*/
+}
+.scroll-list .scroll-item a {
+    display: block;
+    padding: 10px 15px;
+    color: #333;    /*文字色*/
+    font-size: 0;   /*開業させないために親要素でフォントサイズを0とする*/
+    transition: background-color 0.1s;
+}
+.scroll-list .scroll-item:nth-of-type(even) a {
+    background: url('../images/bg-slash.gif');
+}
+.scroll-list .scroll-item a:hover {
+    background-color: #fafaf8;
+}
+.scroll-list .date {
+    display:  inline-block;
+    width: 19%;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 1.0rem;
+}
+.scroll-list .category {
+    display: inline-block;
+    width: 8%;
+    border-radius: 5px;
+    background-color: #d03c56;
+    color: #fff;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 1.0rem;
+    line-height: 16px;
+}
+.scroll-list .title {
+    display: inline-block;
+    width: 73%;
+    padding: 15px;
+    overflow: hidden;   /*はみ出したテキストを折り返さずいに非表示にし・・・で表記*/
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    font-size: 1.2rem;
+}
+.scroll-list .category.news {
+    background-color: #2c3c53;  /*カテゴリーがNEWSの場合は背景色が変わる*/
 }
