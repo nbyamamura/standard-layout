@@ -16,10 +16,9 @@ a:link, a:visited, a:hover, a:active {
     text-decoration: none;
 }
 
-
-.heder {
+.header {
     width: 100%;
-    padding: 28px 0 10px;   /*上余白28px、舌余白10px*/
+    padding: 28px 0 10px;   /*上余白28px、下余白10px*/
     box-shadow: 0 0 10px 1px #e3e3e3;
     background: url("../images/bg-header.gif") repeat-x;/*画層をx方向に繰り返す*/
 }
@@ -241,11 +240,13 @@ a:link, a:visited, a:hover, a:active {
 .article-box .image {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
 }
 .ranking {
-    margin-bottom: 30px;
     list-style-type: none;
+    margin-bottom: 30px;
+    counter-reset:  ranking;
 }
 .ranking .ranking-item {
     margin-top: 15px;
@@ -253,10 +254,10 @@ a:link, a:visited, a:hover, a:active {
 .ranking .ranking-item a {
     display: block;
     font-size: 0;
-    transition: opacity 0.15s;
+    transition: opacity .15s;
 }
 .ranking .ranking-item a:hover {
-    opacity: 0.8;
+    opacity: .8;
 }
 .ranking .image {
     width: 55px;
@@ -265,18 +266,80 @@ a:link, a:visited, a:hover, a:active {
 .ranking .text {
     display: inline-block;
     width: 182px;
-    color: #000;
-    vertical-align: top;
+    color: #000000;
     font-size: 1.2rem;
     line-height: 1.5;
+    vertical-align: top;
 }
 .ranking .order {
     display: inline-block;
     width: 18px;
-    margin:0 10px;
-    border: 1px solid #ccc;
-    vertical-align: 20px;
-    text-align: center;
+    height: 18px;
+    margin: 0 10px;
+    border: 1px solid #cccccc;
     font-weight: bold;
     line-height: 16px;
+    text-align: center;
+    vertical-align: 20px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    
 }
+.ranking .ranking-item:nth-of-type(1) .order,
+.ranking .ranking-item:nth-of-type(2) .order,
+.ranking .ranking-item:nth-of-type(3) .order {
+    border: none;
+    color: #fff;
+    font-weight: normal;
+    line-height: 18px;
+}
+.ranking .ranking-item:nth-of-type(1) .order {
+    background-color: #dab413;
+}
+.ranking .ranking-item:nth-of-type(2) .order {
+    background-color: #6e7b86;
+}
+.ranking .ranking-item:nth-of-type(3) .order {
+    background-color: #a0541a;
+}
+.ranking .order::before {
+    content: counter(ranking);
+    counter-increment: ranking;
+    display: inline-block;
+    font-size: 1rem;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.documents {
+    margin: 10px 10px 30px;
+}
+.documents,
+.documents ul {
+    list-style-type: none;
+}
+.documents >li .title {
+    margin: 15px 0;
+    padding-left: 8px;
+    border-left: 5px solid #d03456;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+.documents > li + li {
+    margin-top: 25px;
+}
+.documents > li ul {
+    margin: 15px;
+}
+.documents > li ul > li {
+    margin-top: 15px;
+    padding-left: 10px;
+    background: url('../images/arrow.gif') no-repeat left center;
+}
+.documents a:hover {
+    text-decoration: underline;
+}
+
