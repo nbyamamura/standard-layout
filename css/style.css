@@ -4,7 +4,7 @@ html {
     font-size: 62.5%;
 }
 body {
-    color: #333;
+    color: #333333;
     font-size: 1.25rem;
     font-family: "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
@@ -16,12 +16,11 @@ a:link, a:visited, a:hover, a:active {
     text-decoration: none;
 }
 
-
-.heder {
+.header {
     width: 100%;
-    padding: 28px 0 10px;   /*上余白28px、舌余白10px*/
-    background: url('../images/bg-header.gif') repeat-x;/*画層をx方向に繰り返す*/
+    padding: 28px 0 10px;   /*上余白28px、下余白10px*/
     box-shadow: 0 0 10px 1px #e3e3e3;
+    background: url("../images/bg-header.gif") repeat-x;/*画層をx方向に繰り返す*/
 }
 .wrapper {
     width: 970px;
@@ -43,17 +42,17 @@ a:link, a:visited, a:hover, a:active {
     width: 100%;
 }
 .clearfix::after {
-    content: '';
     display: block;
     clear: both;
+    content: "";
 }
 
 .logo {
     width: 225px;     /*サイトロゴの表示の幅*/
     height: 56px;   /*サイトロゴの画像の高さ*/
     margin: 0 auto;  /*中央寄せ*/
-    background: url('../images/logo.png') no-repeat;
-    overflow:  hidden; /*背景にSAMPLE LOGOのテキストが画像で隠されている*/
+    overflow: hidden; /*背景にSAMPLE LOGOのテキストが画像で隠されている*/
+    background: url("../images/logo.png") no-repeat;
     text-indent: 100%;
     white-space: nowrap;
 }
@@ -75,28 +74,28 @@ a:link, a:visited, a:hover, a:active {
     display: inline-block;
     width: 100px;
     height: 30px;
-    line-height: 30px;
-    text-align: center;
     border-radius: 8px;
-    color: #666;    /*黒ではない*/
+    color: #666666;    /*黒ではない*/
     font-size: 1.3rem;
+    line-height: 30px;
     letter-spacing: 1px;
-    transition: 0.4s;   /*スタイルの変化に係る時間を調節する*/
+    text-align: center;
+    transition: .4s;   /*スタイルの変化に係る時間を調節する*/
 }
 .global-nav .nav-item.active a, /*.nav-itemと.activeをスペースなく接続する*/
 .global-nav .nav-item a:hover {
-    background-color:  #d03c56;
-    color: #fff;
+    background-color: #d03c56;
+    color: #ffffff;
 }
 .hot-topic {
     display: block; /*.hot-topicはa要素なのでブロックレベル要素として扱えるようにする*/
     height: 300px;
     margin-bottom: 30px;
-    box-shadow: 0 6px 4px -4px rgba(0,0,0,0.15);
-    transition: opacity 0.15s;
+    box-shadow: 0 6px 4px -4px rgba(0,0,0,.15);
+    transition: opacity .15s;
 }
 .hot-topic:hover {
-    opacity: 0.85;  /*ホーバーしたときに光ったように見える*/
+    opacity: .85;  /*ホーバーしたときに光ったように見える*/
 }
 .hot-topic .image {
     float: left;
@@ -114,12 +113,12 @@ a:link, a:visited, a:hover, a:active {
 }
 .hot-topic .title {
     margin-bottom: 15px;
-    color: #fff;
+    color: #ffffff;
     font-weight: normal;
     font-size: 2rem;
 }
 .hot-topic .desc {
-    color: #ddc;
+    color: #ddddcc;
 }
 .hot-topic .date {
     position: absolute;
@@ -127,17 +126,289 @@ a:link, a:visited, a:hover, a:active {
     left: 0;
     width: 140px;
     padding: 4px;
-    background-color: #fff;
+    background-color: #ffffff;
     color: #2d3d54;
-    text-align: center;
-    letter-spacing: 1px;
     font-weight: bold;
     font-size: 1.1rem;
     line-height: 1;
+    letter-spacing: 1px;
+    text-align: center;
 }
 .heading {
     padding: 10px 12px;
-    background: url('../images/bg-slash.gif');
-    letter-spacing: 1px;
+    background: url("../images/bg-slash.gif");
     font-size: 1.6rem;
+    letter-spacing: 1px;
+}
+.scroll-list {
+    list-style: none;   /*リストマークを表示しない*/
+    max-height: 220px;  /*中の要素が少ない場合は縮む*/
+    margin-bottom: 30px;
+    overflow-y: auto;   /*溢れた場合はスクロールする*/
+}
+.scroll-list .scroll-item a {
+    display: block; /*a要素なのでblockに指定*/
+    padding: 10px 15px;
+    color: #333333;    /*文字色*/
+    font-size: 0;   /*開業させないために親要素でフォントサイズを0とする*/
+    transition: background-color .1s;   /*2つの要素の変化時間*/
+}
+.scroll-list .scroll-item:nth-of-type(even) a {
+    background: url("../images/bg-slash.gif");   /*リストの偶数番号*/
+}
+.scroll-list .scroll-item a:hover {
+    background-color: #fafaf8;
+}
+.scroll-list .date {
+    display: inline-block;
+    width: 19%;
+    font-weight: bold;
+    font-size: 1.0rem;
+    letter-spacing: 1px;
+}
+.scroll-list .category {
+    display: inline-block;
+    width: 8%;
+    border-radius: 5px; /*要素の角を丸くする*/
+    background-color: #d03c56;
+    color: #ffffff;    /*文字色*/
+    font-size: 1.0rem;
+    line-height: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.scroll-list .title {
+    display: inline-block;
+    width: 73%;
+    padding: 15px;
+    overflow: hidden;   /*はみ出したテキストを折り返さずいに非表示にし・・・で表記*/
+    font-size: 1.2rem;
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+.scroll-list .category.news {
+    background-color: #0a1df0;  /*カテゴリーがNEWSの場合は背景色が変わる*/
+}
+.article-box {
+    display: block;
+    position: relative;
+    width: 315px;
+    height: 360px;
+    margin-bottom: 30px;
+    padding: 210px 15px 0;
+    box-shadow: 6px 6px 8px -4px rgba(0,0,0,.15);
+    transition: .15s;
+}
+.article-box:hover {
+    opacity: .8;
+}
+.article-box:nth-of-type(odd) {
+    float: left;
+}
+.article-box:nth-of-type(even) {
+    float: right;
+}
+.article-box .title {
+    margin-top: 30px;
+    color: #555555;
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+.article-box .desc {
+    margin-top: 5px;
+    overflow: hidden;
+    color: #333333;
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+}
+.article-box .date {
+    display: block;
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+    width: 160px;
+    padding: 4px;
+    background-color: #b5d264;
+    color: #2d3d54;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.article-box .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+/*--------------------
+ランキング
+--------------------*/
+.ranking {
+    list-style-type: none;
+    margin-bottom: 30px;
+    counter-reset:  ranking;
+}
+.ranking .ranking-item {
+    margin-top: 15px;
+}
+.ranking .ranking-item a {
+    display: block;
+    font-size: 0;
+    transition: opacity .15s;
+}
+.ranking .ranking-item a:hover {
+    opacity: .8;
+}
+.ranking .image {
+    width: 55px;
+    height: 55px;
+}
+.ranking .text {
+    display: inline-block;
+    width: 182px;
+    color: #000000;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    vertical-align: top;
+}
+.ranking .order {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin: 0 10px;
+    border: 1px solid #cccccc;
+    font-weight: bold;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: 20px;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    transform: rotate(45deg);
+    
+}
+.ranking .ranking-item:nth-of-type(1) .order,
+.ranking .ranking-item:nth-of-type(2) .order,
+.ranking .ranking-item:nth-of-type(3) .order {
+    border: none;
+    color: #fff;
+    font-weight: normal;
+    line-height: 18px;
+}
+.ranking .ranking-item:nth-of-type(1) .order {
+    background-color: #dab413;
+}
+.ranking .ranking-item:nth-of-type(2) .order {
+    background-color: #6e7b86;
+}
+.ranking .ranking-item:nth-of-type(3) .order {
+    background-color: #a0541a;
+}
+.ranking .order::before {
+    content: counter(ranking);
+    counter-increment: ranking;
+    display: inline-block;
+    font-size: 1rem;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+.documents {
+    margin: 10px 10px 30px;
+}
+.documents,
+.documents ul {
+    list-style-type: none;
+}
+.documents >li .title {
+    margin: 15px 0;
+    padding-left: 8px;
+    border-left: 5px solid #d03456;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+.documents > li + li {
+    margin-top: 25px;
+}
+.documents > li ul {
+    margin: 15px;
+}
+.documents > li ul > li {
+    margin-top: 15px;
+    padding-left: 10px;
+    background: url('../images/arrow.gif') no-repeat left center;
+    /*backgroundプロパティを使用すると細い位置の調整が出来る*/
+}
+.documents a:hover {
+    text-decoration: underline;
+}
+/*--------------------
+検索ボックス
+---------------------*/
+.search-box {
+    padding-left: 15px;
+    width: 205px;
+    background-color: #ccc;
+    font-size: 0;
+}
+.search-box > * {
+    font-size: 1.2rem;
+}
+.search-box .serch-input {
+    width: 205px;
+    height: 26px;
+    padding: 0 10px;
+    border: none;
+}
+.search-box .search-button {
+    width: 40px;
+    height: 25px;
+    border: none;
+    background-color: #d03456;
+    color: #fff;
+    cursor: pointer;
+}
+.search-box .text {
+    margin-top: 12px;
+}
+/*--------------------
+フッター
+--------------------*/
+.footer {
+    width: 100%;
+    padding: 20px 0 30px;
+    background: #2d3d54 url(../images/bg-footer.gif);
+    color: #fff;
+}
+.horizontal-list {
+    width: 970px;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 0; /*inline-blockで並べた要素の間には改行文字による隙間が入ってしまうので、font-size0;で隙間をなくす*/
+}
+.horizontal-list .horizontal-item {
+    display: inline-block;
+    padding: 0 15px;
+    letter-spacing: 1px;
+}
+.horizontal-list .horizontal-item + .horizontal-item {  /*horizontal-itemの直後に書かれたhorizontal-itemに対border-leftを指定する*/
+    border-left: 1px solid #bbb;
+}
+.horizontal-list .horizontal-item a {
+    border-bottom: 1px dashed #777;
+    color: #bbb;
+    font-size: 1.1rem;
+    transition: 0.15s;
+}
+.horizontal-list .horizontal-item a:hover {
+    color: #ddd;
+}
+.copyright {
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 1px;
 }
