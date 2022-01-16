@@ -243,6 +243,9 @@ a:link, a:visited, a:hover, a:active {
     left: 0;
     width: 100%;
 }
+/*--------------------
+ランキング
+--------------------*/
 .ranking {
     list-style-type: none;
     margin-bottom: 30px;
@@ -338,8 +341,74 @@ a:link, a:visited, a:hover, a:active {
     margin-top: 15px;
     padding-left: 10px;
     background: url('../images/arrow.gif') no-repeat left center;
+    /*backgroundプロパティを使用すると細い位置の調整が出来る*/
 }
 .documents a:hover {
     text-decoration: underline;
 }
-
+/*--------------------
+検索ボックス
+---------------------*/
+.search-box {
+    padding-left: 15px;
+    width: 205px;
+    background-color: #ccc;
+    font-size: 0;
+}
+.search-box > * {
+    font-size: 1.2rem;
+}
+.search-box .serch-input {
+    width: 205px;
+    height: 26px;
+    padding: 0 10px;
+    border: none;
+}
+.search-box .search-button {
+    width: 40px;
+    height: 25px;
+    border: none;
+    background-color: #d03456;
+    color: #fff;
+    cursor: pointer;
+}
+.search-box .text {
+    margin-top: 12px;
+}
+/*--------------------
+フッター
+--------------------*/
+.footer {
+    width: 100%;
+    padding: 20px 0 30px;
+    background: #2d3d54 url(../images/bg-footer.gif);
+    color: #fff;
+}
+.horizontal-list {
+    width: 970px;
+    margin: 0 auto;
+    text-align: right;
+    font-size: 0; /*inline-blockで並べた要素の間には改行文字による隙間が入ってしまうので、font-size0;で隙間をなくす*/
+}
+.horizontal-list .horizontal-item {
+    display: inline-block;
+    padding: 0 15px;
+    letter-spacing: 1px;
+}
+.horizontal-list .horizontal-item + .horizontal-item {  /*horizontal-itemの直後に書かれたhorizontal-itemに対border-leftを指定する*/
+    border-left: 1px solid #bbb;
+}
+.horizontal-list .horizontal-item a {
+    border-bottom: 1px dashed #777;
+    color: #bbb;
+    font-size: 1.1rem;
+    transition: 0.15s;
+}
+.horizontal-list .horizontal-item a:hover {
+    color: #ddd;
+}
+.copyright {
+    margin-top: 30px;
+    text-align: center;
+    letter-spacing: 1px;
+}
